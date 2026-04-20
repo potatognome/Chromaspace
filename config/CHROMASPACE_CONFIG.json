@@ -1,0 +1,87 @@
+{
+    "INFO": {
+        "PROJECT_NAME"        : "Chromaspace",
+        "PROJECT_FOLDER"      : "/Core/Chromaspace/",
+        "PROJECT_DESCRIPTION" : "Perceptually-structured colour taxonomy with semantic naming, multi-space generation, and JSON export",
+        "AUTHOR"              : "Daniel Austin <the.potato.gnome@gmail.com>",
+        "VERSION"             : "0.3.0",
+        "LICENSE_TYPE"        : "MIT",
+        "BUILD_TYPE"          : "Core",
+        "MAIN_ENTRY_POINT"    : "Chromaspace.main:main"
+    },
+
+    "ROOTS": {
+        "WORKSPACE"           : ".",
+        "PROJECT"             : "./Core/Chromaspace"
+    },
+
+    "ROOT_MODES": {
+        "ROOT_MODES: project": "Paths are relative to the project root.",
+        "ROOT_MODES: workspace": "Paths are relative to the workspace root.",
+        "CONFIG"              : "project",
+        "LOGS"                : "project",
+        "INPUTS"              : "project",
+        "OUTPUTS"             : "project",
+        "TEST_CONFIG"         : "project",
+        "TEST_LOGS"           : "project",
+        "TEST_INPUTS"         : "project",
+        "TEST_OUTPUTS"        : "project"
+    },
+
+    "PATHS": {
+        "CONFIG"              : "config/",
+        "LOGS"                : "logFiles/",
+        "INPUTS"              : "input/",
+        "OUTPUTS"             : "output/",
+        "TEST_CONFIG"         : "config/",
+        "TEST_LOGS"           : "logFiles/test/",
+        "TEST_INPUTS"         : "tests/test_data/",
+        "TEST_OUTPUTS"        : "tests/test_output/",
+        "FOLDERS": {
+            "HTML_OUTPUT"     : "../output/HTML"
+        },
+        "FILES": {
+            "COLOUR_SYSTEM_JSON"  : "../output/chromaspace.json",
+            "PREVIEW_HTML"        : "../output/preview.html",
+            "HUE_SQUARES_HTML"    : "hue_squares.html"
+        }
+    },
+
+    "SHARED_CONFIG": {
+        "ENABLED"                 : true,
+        "PATH"                    : "GLOBAL_SHARED.d/",
+        "FILES"                   : {
+            "COLOURS"             : "COLOURS.json",
+            "BORDER_PATTERNS"     : "BORDER_PATTERNS.json",
+            "TESTS_OPTIONS"       : "TESTS_OPTIONS.json",
+            "TIME_STAMP_OPTIONS"  : "TIME_STAMP_OPTIONS.json"
+        }
+    },
+
+    "ALT_CONFIG": {
+        "ENABLED"                 : false,
+        "PATH"                    : "",
+        "FILES"                   : {
+            "COLOURS"             : "",
+            "BORDER_PATTERNS"     : "",
+            "TESTS_OPTIONS"       : "",
+            "TIME_STAMP_OPTIONS"  : ""
+        }
+    },
+
+    "LOG_FILES": {
+        "MASTER"              : "chromaspace_MASTER.log",
+        "ERROR"               : "chromaspace_ERROR.log",
+        "INIT"                : "chromaspace_INIT.log",
+        "RUNTIME"             : "chromaspace_RUNTIME.log",
+        "SESSION"             : "chromaspace_SESSION.log"
+    },
+
+    "LOG_CATEGORIES": {
+        "default"             : ["MASTER", "SESSION"],
+        "error"               : ["MASTER", "SESSION", "ERROR"],
+        "init"                : ["INIT", "SESSION", "MASTER"],
+        "runtime"             : ["RUNTIME", "SESSION", "MASTER"],
+        "all"                 : ["MASTER", "SESSION", "ERROR", "INIT", "RUNTIME"]
+    }
+}

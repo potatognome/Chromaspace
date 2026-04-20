@@ -1,0 +1,5 @@
+{ 
+  "COLOUR_SYSTEM_NAME" : "3x18x4x4",
+  "DESCRIPTION"        : "A colour system with 3 variants, 18 hues, 4 saturation bands, and 4 luminosity bands.",
+  "CONFIG_PATH"        : "COLOUR_SYSTEM_CONFIG_3x18x4x4.json"
+}
