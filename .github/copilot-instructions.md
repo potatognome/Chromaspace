@@ -1,131 +1,25 @@
-# Copilot Instructions — Chromaspace (Core + Chromacore Registry)
+# Copilot Instructions - Chromaspace
 
 ## Purpose
-Chromaspace is the kernel of the colour‑geometry platform. It provides:
-- Geometric primitives
-- Colour‑space adapters
-- System‑level interfaces
-- The Chromacore Registry (core registry)
-- Integration with tUilKit config + logging
+Chromaspace is the core colour-geometry and registry layer for the wider Chroma ecosystem. Preserve stable interfaces, deterministic ordering, and explicit metadata.
+This file is minimal by design. All general rules, agent edit policies, and centralized log/config options are defined in the modular copilot-instructions files.
 
-All extensions (Chromaschemes, Chromagrams, renderers, exporters) depend on Chromaspace.
+Refer to:
+- [Modular copilot-instructions](./copilot-instructions.d/*.md) for extensions to the general rules in this file.
 
-Copilot must ensure:
-- The Chromacore Registry is implemented as a first‑class subsystem
-- All modules register through the registry
-- All config loading uses tUilKit’s deterministic config framework
-- All logging uses tUilKit structured logging
-- All interfaces are explicit, typed, and stable
-- All modules remain modular, override‑friendly, and auditable
+## Shared Policies Propagated from dev_local/.github
+- Treat this repository as its own root. Do not depend on parent dev_local paths existing on another machine.
+- Keep all config, logs, tests, and output locations config-driven. Respect ROOT_MODES, PATHS, LOG_FILES, and any `.d` override directories.
+- Never hardcode machine-specific absolute paths.
+- Use tUilKit config and logging patterns for production code; prefer factory-based access to shared services where available.
+- Use semantic colour/log keys such as `!info`, `!proc`, `!done`, `!warn`, `!error`, `!path`, `!file`, `!data`, `!test`, `!pass`, `!fail`, and `!date`.
+- Keep tests deterministic and update test bootstrap files such as `tests/test_paths.json` when path behavior changes.
+- Update `README.md`, `CHANGELOG.md`, `pyproject.toml`, and config version fields together when behavior or releases change.
+- Keep changelog dates in `YYYY-MM-DD` format and place substantive docs under `docs/`.
 
----
-
-## Project Structure
-  - Chromaspace/ 
-    - src/chromaspace/
-      - core/
-      - registry/
-      - colour_spaces/
-      - geometry/
-      - interfaces/
-    - config/
-      - CHROMASPACE_SPEC/
-        - COLOUR_SYSTEM_CONFIG.json
-      - CHROMASPACE.d/
-      - CHROMASPACE_CONFIG.json
-    - docs/      
-    - tests/
-
-
----
-
-## Chromacore Registry Requirements
-
-### Responsibilities
-Copilot must implement the registry as a subsystem that:
-- Maintains typed module tables
-- Validates module metadata
-- Enforces deterministic ordering
-- Integrates with tUilKit config
-- Logs registration events
-- Provides lookup APIs for:
-  - Scheme generators
-  - Animation sequences
-  - Renderers
-  - Colour‑space adapters
-  - Future module types
-
-### Registry API
-Copilot must implement:
-- `register(module_type, name, version, factory, capabilities, config_schema)`
-- `get(module_type, name)`
-- `get_all(module_type)`
-- `find(module_type, capability)`
-- `disable(module_type, name)`
-- `metadata(module_type, name)`
-- `freeze()`
-
-### Decorators
-Copilot must provide:
-- `@register_scheme`
-- `@register_animation`
-- `@register_renderer`
-- `@register_colour_space`
-
-Decorators must:
-- Validate metadata
-- Register the module
-- Attach metadata to the class
-
-### Module Types
-Defined in `module_types.py`:
-- `scheme_generator`
-- `animation_sequence`
-- `renderer`
-- `colour_space`
-- `utility` (future)
-
-### Metadata Schema
-Copilot must enforce:
-- `name`
-- `version`
-- `capabilities`
-- `config_schema`
-- `priority` (optional)
-
----
-
-## Interfaces
-Copilot must maintain stable interfaces:
-- `SchemeInterface`
-- `AnimationInterface`
-- `RendererInterface`
-- `ColourSpaceInterface`
-
-All modules must implement these interfaces.
-
----
-
-## Geometry + Colour Spaces
-Copilot must ensure:
-- All geometry primitives are modular
-- All colour‑space adapters register themselves
-- All math is deterministic and auditable
-
----
-
-## tUilKit Integration
-Copilot must:
-- Load config via tUilKit
-- Support `.d` override directories
-- Log registry events
-- Provide audit‑friendly metadata
-
----
-
-## Testing Requirements
-Copilot must scaffold:
-- Registry tests
-- Geometry tests
-- Colour‑space tests
-- Interface compliance tests
+## Project-Specific Rules
+- Keep the Chromacore registry as a first-class subsystem with explicit module metadata and deterministic registration order.
+- Preserve stable interfaces for registry-backed module types such as schemes, animations, renderers, and colour-space adapters.
+- Keep geometry, colour-space logic, and semantic colour roles auditable and typed.
+- Use layered config under `config/CHROMASPACE_CONFIG.json` and related override directories rather than hardcoded runtime state.
+- Tests should cover registry behavior, interface compliance, geometry primitives, and deterministic colour-space output.

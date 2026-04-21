@@ -14,6 +14,13 @@ def _existing_path(candidates):
             return path
     return None
 
+
+def resolve_app_config_path(project_path=None, workspace_path=None):
+    """Resolve the primary Chromaspace config, preferring workspace override."""
+    project_candidate = project_path or _CHROMASPACE_CONFIG_PATH
+    workspace_candidate = workspace_path or _WORKSPACE_CHROMASPACE_CONFIG_PATH
+    return _existing_path([workspace_candidate, project_candidate])
+
 # ---------------------------------------------------------------------------
 # App-level config via tUilKit (CHROMASPACE_CONFIG.json)
 # Using ConfigLoader with an explicit path so discovery works regardless of
@@ -32,9 +39,7 @@ _WORKSPACE_CHROMASPACE_CONFIG_PATH = os.path.normpath(
 
 try:
     from tUilKit.utils.config import ConfigLoader as _ConfigLoader
-    _resolved_app_config_path = _existing_path(
-        [_CHROMASPACE_CONFIG_PATH, _WORKSPACE_CHROMASPACE_CONFIG_PATH]
-    )
+    _resolved_app_config_path = resolve_app_config_path()
     if _resolved_app_config_path is None:
         raise FileNotFoundError("No Chromaspace app config was found")
 
