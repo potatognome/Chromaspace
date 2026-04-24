@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "Chromaspace"
-version = "0.3.0"
+version = "0.3.9"
 description = "Perceptually-structured colour taxonomy with semantic naming, multi-space generation, and JSON export"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -19,5 +19,7 @@ chromaspace = "Chromaspace.main:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+
 
 
