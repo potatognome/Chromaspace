@@ -82,7 +82,10 @@
         "ERROR": "chromaspace_ERROR.log",
         "INIT": "chromaspace_INIT.log",
         "RUNTIME": "chromaspace_RUNTIME.log",
-        "SESSION": "chromaspace_SESSION.log"
+        "SESSION": "chromaspace_SESSION.log",
+        "TRY": "Chromaspace_TRY.log",
+        "FS": "Chromaspace_FS.log",
+        "CONFIG_READ": "Chromaspace_CONFIG_READ.log"
     },
     "LOG_CATEGORIES": {
         "default": [
