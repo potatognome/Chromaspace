@@ -10,8 +10,8 @@
         "MAIN_ENTRY_POINT": "Chromaspace.main:main"
     },
     "ROOTS": {
-        "WORKSPACE": ".",
-        "PROJECT": "./Core/Chromaspace"
+        "WORKSPACE": "C:/Repository/Daniel/dev_local",
+        "PROJECT": "C:/Repository/Daniel/dev_local/Core/Chromaspace"
     },
     "ROOT_MODES": {
         "ROOT_MODES: project": "Paths are relative to the project root.",
@@ -34,7 +34,7 @@
     },
     "PATHS": {
         "CONFIG": "config/",
-        "LOGS": "logFiles/",
+        "LOGS": ".logs/Chromaspace/",
         "INPUTS": "input/",
         "OUTPUTS": "output/",
         "TEST_CONFIG": "config/",
@@ -77,6 +77,9 @@
             "TIME_STAMP_OPTIONS": ""
         }
     },
+    "SECONDARY": {
+        "FILE": "Chromaspace_SECONDARY.json"
+    },
     "LOG_FILES": {
         "MASTER": "chromaspace_MASTER.log",
         "ERROR": "chromaspace_ERROR.log",
@@ -114,8 +117,5 @@
             "INIT",
             "RUNTIME"
         ]
-    },
-    "SECONDARY": {
-        "FILE": "Chromaspace_SECONDARY.json"
     }
 }

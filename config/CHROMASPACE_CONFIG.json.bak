@@ -114,5 +114,8 @@
             "INIT",
             "RUNTIME"
         ]
+    },
+    "SECONDARY": {
+        "FILE": "Chromaspace_SECONDARY.json"
     }
 }
