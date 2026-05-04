@@ -7,7 +7,8 @@
         "VERSION": "0.3.0",
         "LICENSE_TYPE": "MIT",
         "BUILD_TYPE": "Core",
-        "MAIN_ENTRY_POINT": "Chromaspace.main:main"
+        "MAIN_ENTRY_POINT": "Chromaspace.main:main",
+        "COLOUR_FSTR": "!project"
     },
     "ROOTS": {
         "WORKSPACE": "C:/Repository/Daniel/dev_local",
