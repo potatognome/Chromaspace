@@ -1,5 +1,5 @@
-from Dev.Chromaspace.src.Chromaspace.generator import generate_colour_entries
-from Dev.Chromaspace.src.Chromaspace.config import (
+from Chromaspace.generator import generate_colour_entries
+from Chromaspace.config import (
     HUE_ANCHORS,
     HUE_VARIANTS,
     LUM_BANDS,

@@ -31,16 +31,24 @@ python generate_json.py
 
 ## Configuration
 
-The active colour system is controlled by `config/_COLOUR_SYSTEM_POINTER.json`:
+The active colour system is controlled by `config/CHROMASPACE.d/Chromaspace_SECONDARY.json`:
 
 ```json
 {
-    "COLOUR_SYSTEM_NAME": "3x20x4x4",
-    "CONFIG_PATH": "COLOUR_SYSTEM_CONFIG_3x20x4x4.json"
+    "COLOUR_SYSTEM_POINTER": {
+        "COLOUR_SYSTEM_NAME": "2x36x5x5-oklch",
+        "CONFIG_PATH": "COLOUR_SYSTEM_CONFIG_2x36x5x5_OKLCH.json"
+    }
 }
 ```
 
-Switch to a different config by editing this pointer. Available configs are in `config/COLOUR_SYSTEM_CONFIG_*.json`.
+Switch to a different config by editing this pointer. Available configs are in `config/CHROMASPACE_SPEC/COLOUR_SYSTEM_CONFIG_*.json`.
+
+Path ownership policy:
+
+- `Chromaspace_CONFIG.json` (primary) controls root modes and base roots (`ROOTS`, `ROOT_MODES`, `PATHS`).
+- `Chromaspace_SECONDARY.json` controls Chromaspace-specific folder/file naming templates.
+- Colour-system spec files are value-only and must not define `PATHS`.
 
 ## Colour System Config Keys
 

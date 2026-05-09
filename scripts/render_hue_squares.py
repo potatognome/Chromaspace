@@ -2,12 +2,25 @@ import os
 import argparse
 import sys
 import pathlib
-WORKSPACE_ROOT = pathlib.Path(__file__).resolve().parents[3]
-if str(WORKSPACE_ROOT) not in sys.path:
-    sys.path.insert(0, str(WORKSPACE_ROOT))
-from Dev.Chromaspace.src.Chromaspace.visualization import build_hue_square
-from Dev.Chromaspace.src.Chromaspace.config import HUE_GLOBAL_OFFSET, SAT_GLOBAL_OFFSET, LUM_GLOBAL_OFFSET, _config
-from Dev.Chromaspace.src.Chromaspace.cli_utils import get_hue_anchors, get_hue_variants, get_sat_bands, get_lum_bands, parse_band_arg, ensure_output_dir
+PROJECT_ROOT = pathlib.Path(__file__).resolve().parents[1]
+SRC_ROOT = PROJECT_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+from Chromaspace.visualization import build_hue_square
+from Chromaspace.config import (
+    HUE_GLOBAL_OFFSET,
+    SAT_GLOBAL_OFFSET,
+    LUM_GLOBAL_OFFSET,
+    _config,
+)
+from Chromaspace.cli_utils import (
+    get_hue_anchors,
+    get_hue_variants,
+    get_sat_bands,
+    get_lum_bands,
+    parse_band_arg,
+    ensure_output_dir,
+)
 
 def main():
     parser = argparse.ArgumentParser(description="Render configurable hue squares as HTML.")
@@ -46,7 +59,7 @@ def main():
             except Exception:
                 pass
 
-    from Dev.Chromaspace.src.Chromaspace.cli_utils import get_output_folder, get_output_file
+    from Chromaspace.cli_utils import get_output_folder, get_output_file
     html_folder = get_output_folder(
         "HTML_OUTPUT", "../output/HTML", with_system_suffix=True
     )

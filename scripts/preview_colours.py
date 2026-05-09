@@ -5,9 +5,10 @@ import math
 from pathlib import Path
 import sys
 
-WORKSPACE_ROOT = Path(__file__).resolve().parents[3]
-if str(WORKSPACE_ROOT) not in sys.path:
-    sys.path.insert(0, str(WORKSPACE_ROOT))
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+SRC_ROOT = PROJECT_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
 
 HTML_TEMPLATE = '''
 <!DOCTYPE html>
@@ -106,8 +107,8 @@ def main():
     parser.add_argument('--output', default=None, help='Output HTML file (default: config or same as input, .html)')
     args = parser.parse_args()
 
-    from Dev.Chromaspace.src.Chromaspace.config import _config
-    from Dev.Chromaspace.src.Chromaspace.cli_utils import ensure_output_dir
+    from Chromaspace.config import _config
+    from Chromaspace.cli_utils import ensure_output_dir
     input_path = args.input or _config["PATHS"]["FILES"]["COLOUR_SYSTEM_JSON"]
     output_path = (
         args.output

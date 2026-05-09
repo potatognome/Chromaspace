@@ -1,4 +1,4 @@
-from Dev.Chromaspace.src.Chromaspace.core import (
+from Chromaspace.core import (
     clamp,
     normalize_hue,
     stable_round,

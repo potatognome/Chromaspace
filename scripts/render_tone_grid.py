@@ -4,12 +4,13 @@ import os
 from pathlib import Path
 import sys
 
-WORKSPACE_ROOT = Path(__file__).resolve().parents[3]
-if str(WORKSPACE_ROOT) not in sys.path:
-    sys.path.insert(0, str(WORKSPACE_ROOT))
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+SRC_ROOT = PROJECT_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
 
-from Dev.Chromaspace.src.Chromaspace.visualization import build_hue_square
-from Dev.Chromaspace.src.Chromaspace.cli_utils import get_hue_anchors, get_hue_variants, ensure_output_dir
+from Chromaspace.visualization import build_hue_square
+from Chromaspace.cli_utils import get_hue_anchors, get_hue_variants, ensure_output_dir
 
 
 def main():
@@ -21,7 +22,7 @@ def main():
     variants = get_hue_variants()
 
 
-    from Dev.Chromaspace.src.Chromaspace.cli_utils import (
+    from Chromaspace.cli_utils import (
         append_suffix_to_filename,
         get_output_folder,
     )

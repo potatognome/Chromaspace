@@ -1,5 +1,5 @@
-from Dev.Chromaspace.src.Chromaspace.colour_engine import to_rgb
-from Dev.Chromaspace.src.Chromaspace.registry import (
+from Chromaspace.colour_engine import to_rgb
+from Chromaspace.registry import (
     MODULE_TYPE_COLOUR_SPACE,
     find,
     get,

@@ -5,12 +5,13 @@ import os
 from pathlib import Path
 import sys
 
-WORKSPACE_ROOT = Path(__file__).resolve().parents[3]
-if str(WORKSPACE_ROOT) not in sys.path:
-    sys.path.insert(0, str(WORKSPACE_ROOT))
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+SRC_ROOT = PROJECT_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
 
-from Dev.Chromaspace.src.Chromaspace.config import _config
-from Dev.Chromaspace.src.Chromaspace.cli_utils import get_sat_bands, get_lum_bands, parse_band_arg, ensure_output_dir, load_json, save_json
+from Chromaspace.config import _config
+from Chromaspace.cli_utils import get_sat_bands, get_lum_bands, parse_band_arg, ensure_output_dir, load_json, save_json
 
 # Load colour_system.json from config
 colour_json_path = _config["PATHS"]["FILES"]["COLOUR_SYSTEM_JSON"]

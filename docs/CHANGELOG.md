@@ -1,3 +1,11 @@
+## [0.3.10] - 2026-05-04
+- VERSION UPDATED: 0.3.9 -> 0.3.10.
+- Refactored config architecture to primary/secondary split with colour-system pointer in `CHROMASPACE.d/Chromaspace_SECONDARY.json`.
+- Removed `PATHS` blocks from `CHROMASPACE_SPEC/COLOUR_SYSTEM_CONFIG_*.json` and enforced path-free spec policy in loader.
+- Output path/file resolution now derives from primary `ROOTS`/`ROOT_MODES`/`PATHS` with secondary folder/file templates.
+- Script and test import paths normalized to project-local package imports.
+- `make_xkcd.py` now uses standard-library HTTP instead of requiring `requests`.
+
 ## [0.3.0] - 2026-04-19
 - Workspace migration to Core/SuiteTools/Applications layout.
 - Path normalization for portable multi-device use (no machine-specific absolute roots).

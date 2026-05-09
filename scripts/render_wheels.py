@@ -4,12 +4,13 @@ import os
 from pathlib import Path
 import sys
 
-WORKSPACE_ROOT = Path(__file__).resolve().parents[3]
-if str(WORKSPACE_ROOT) not in sys.path:
-    sys.path.insert(0, str(WORKSPACE_ROOT))
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+SRC_ROOT = PROJECT_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
 
-from Dev.Chromaspace.src.Chromaspace.visualization import build_sat_wheel, build_lum_wheel
-from Dev.Chromaspace.src.Chromaspace.cli_utils import get_sat_bands, get_lum_bands, ensure_output_dir
+from Chromaspace.visualization import build_sat_wheel, build_lum_wheel
+from Chromaspace.cli_utils import get_sat_bands, get_lum_bands, ensure_output_dir
 
 
 def main():
@@ -22,7 +23,7 @@ def main():
 
     # Use config-driven default if not provided
 
-    from Dev.Chromaspace.src.Chromaspace.cli_utils import (
+    from Chromaspace.cli_utils import (
         append_suffix_to_filename,
         get_output_folder,
     )

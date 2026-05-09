@@ -1,7 +1,7 @@
-from Dev.Chromaspace.src.Chromaspace.registry import (
+from Chromaspace.registry import (
     MODULE_TYPE_SCHEME_GENERATOR,
 )
-from Dev.Chromaspace.src.Chromaspace.registry.registry import ChromacoreRegistry
+from Chromaspace.registry.registry import ChromacoreRegistry
 
 
 def _build_registry():

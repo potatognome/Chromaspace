@@ -1,4 +1,4 @@
-from Dev.Chromaspace.src.Chromaspace.interfaces import (
+from Chromaspace.interfaces import (
     AnimationInterface,
     ColourSpaceInterface,
     RendererInterface,

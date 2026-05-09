@@ -1,4 +1,4 @@
-from Dev.Chromaspace.src.Chromaspace.geometry import Point2D, rotate_point
+from Chromaspace.geometry import Point2D, rotate_point
 
 
 def test_rotate_point_90_degrees_about_origin():

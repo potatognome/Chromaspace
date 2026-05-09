@@ -1,4 +1,4 @@
-from Dev.Chromaspace.src.Chromaspace.hsv import hsv_to_rgb
+from Chromaspace.hsv import hsv_to_rgb
 
 def test_hsv_to_rgb():
     assert hsv_to_rgb(0, 1, 1) == [255, 0, 0]

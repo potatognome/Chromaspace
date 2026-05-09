@@ -5,15 +5,15 @@ import json
 import os
 from pathlib import Path
 import sys
+from urllib.request import urlopen
 
-import requests
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+SRC_ROOT = PROJECT_ROOT / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
 
-WORKSPACE_ROOT = Path(__file__).resolve().parents[3]
-if str(WORKSPACE_ROOT) not in sys.path:
-    sys.path.insert(0, str(WORKSPACE_ROOT))
-
-from Dev.Chromaspace.src.Chromaspace.config import _config
-from Dev.Chromaspace.src.Chromaspace.cli_utils import ensure_output_dir, save_json
+from Chromaspace.config import _config
+from Chromaspace.cli_utils import ensure_output_dir, save_json
 
 def hex_to_rgb(hex_str):
     hex_str = hex_str.lstrip('#')
@@ -21,8 +21,8 @@ def hex_to_rgb(hex_str):
 
 # Download from official source
 url = "https://xkcd.com/color/rgb.txt"
-response = requests.get(url)
-lines = response.text.split('\n')
+with urlopen(url, timeout=30) as response:
+    lines = response.read().decode("utf-8").splitlines()
 
 colors = {}
 for idx, line in enumerate(lines):

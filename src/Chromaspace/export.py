@@ -10,10 +10,15 @@ except Exception:
     logger = None
     file_system = None
 
-LOG_FILES = {
-    "SESSION": "logFiles/chromaspace_SESSION.log",
-    "MASTER":  "logFiles/chromaspace_MASTER.log",
-}
+try:
+    from .config import app_config as _app_config
+except Exception:
+    _app_config = {}
+
+LOG_FILES = _app_config.get(
+    "LOG_FILES",
+    {},
+)
 
 
 def export_to_json(colours, path):

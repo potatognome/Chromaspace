@@ -9,7 +9,7 @@ def save_json(obj, path, encoding='utf-8', **kwargs):
         json.dump(obj, f, indent=2, ensure_ascii=False, **kwargs)
 """Shared CLI utilities for colour_system scripts."""
 import os
-from Dev.Chromaspace.src.Chromaspace.config import _config, COLOUR_SYSTEM_SUFFIX
+from .config import _config, COLOUR_SYSTEM_SUFFIX
 
 # Band/variant parsing helpers
 def parse_band_arg(arg, all_bands):

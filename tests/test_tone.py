@@ -1,4 +1,4 @@
-from Dev.Chromaspace.src.Chromaspace.tone import get_tone_label
+from Chromaspace.tone import get_tone_label
 
 def test_tone_label():
     assert get_tone_label('vivid', 'bright') == 'vivid-bright'

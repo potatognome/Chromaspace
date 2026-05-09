@@ -1,4 +1,4 @@
-from Dev.Chromaspace.src.Chromaspace.hue import (
+from Chromaspace.hue import (
     get_hue_angle,
     get_hue_label,
     get_sorted_hues,
